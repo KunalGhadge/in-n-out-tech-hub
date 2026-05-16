@@ -1,12 +1,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  // Build a static site for Vercel
-  build: {
-    outDir: "dist",
-    rollupOptions: {
-      // Ensure all assets are emitted correctly
-    },
+  tanstackStart: {
+    server: { preset: "vercel" },
   },
-  // No server preset needed for static deployment
 });
