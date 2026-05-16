@@ -33,7 +33,7 @@ function Nav() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-5"}`}>
       <div className="mx-auto max-w-6xl px-4">
-        <div className={`flex items-center justify-between rounded-full px-5 py-3 transition-all ${scrolled ? "glass shadow-[0_8px_30px_-12px_rgba(76,102,99,0.18)]" : ""}`}>
+        <div className={`flex items-center justify-between rounded-full px-5 py-3 transition-all ${scrolled ? "nav-glass shadow-[0_8px_30px_-12px_rgba(0,0,0,0.15)]" : ""}`}>
           <a href="#top" className="flex items-center gap-2.5 font-display text-base tracking-tight">
             <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--granite)] text-[var(--background)]">
               <span className="font-display italic text-sm">in</span>
