@@ -70,6 +70,19 @@ function Nav() {
 
 /* ---------- HERO ---------- */
 function Hero() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth) - 0.5,
+        y: (e.clientY / window.innerHeight) - 0.5,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       {/* Background video */}
@@ -95,25 +108,25 @@ function Hero() {
           <span>Rated 4.9 by 464+ patrons · Open till 10pm</span>
         </div>
 
-        <h1 className="animate-fade-up text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] font-display font-light text-[var(--granite)] text-balance">
-          Computers,
+        <h1 className="animate-fade-up text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] font-display font-light text-[var(--foreground)] text-balance">
+          Custom Gaming PCs,
           <br />
           <span className="italic-serif text-[var(--granite)]/90">crafted</span>{" "}
-          <span className="gradient-text">with care.</span>
+          <span className="gradient-text">in Panvel.</span>
         </h1>
 
-        <p className="animate-fade-up mt-8 max-w-xl mx-auto text-base sm:text-lg text-[var(--granite)]/70 text-balance leading-relaxed" style={{ animationDelay: "0.15s" }}>
-          A quiet atelier in Kamothe building bespoke PCs, sourcing premium laptops
-          and reviving tired machines — for over a decade.
+        <p className="animate-fade-up mt-8 max-w-xl mx-auto text-base sm:text-lg text-[var(--foreground)]/70 text-balance leading-relaxed" style={{ animationDelay: "0.15s" }}>
+          The atelier for bespoke gaming rigs, premium laptops and expert computer repairs. 
+          Building with care in Kamothe for over a decade.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.3s" }}>
           <a href="#shop" className="group inline-flex items-center gap-2 rounded-full bg-[var(--granite)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:bg-black transition shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
-            Explore the atelier
+            Explore Custom Builds
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
           </a>
-          <a href="#visit" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-[var(--granite)] hover:bg-white/80 transition">
-            Visit the store
+          <a href="https://wa.me/919167940505?text=Hi%20IN-N-OUT%2C%20I'm%20interested%20in%20a%20new%20PC.%20Can%20you%20help%3F" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-[var(--granite)] hover:bg-white/80 transition">
+            Request a Quote
           </a>
         </div>
 
@@ -129,15 +142,17 @@ function Hero() {
             <div className="absolute -inset-x-8 -bottom-10 h-32 bg-[var(--celadon)]/40 blur-3xl rounded-full -z-10" />
           </div>
 
-          {/* floating chips */}
-          <div className="hidden md:flex absolute -left-4 top-10 bg-white/90 backdrop-blur-xl rounded-2xl px-4 py-3 items-center gap-3 animate-float shadow-xl border border-black/5" style={{ animationDelay: "1s" }}>
+          {/* floating chips with parallax effect */}
+          <div className="hidden md:flex absolute -left-4 top-10 bg-white/90 backdrop-blur-xl rounded-2xl px-4 py-3 items-center gap-3 animate-float shadow-xl border border-black/5 transition-transform duration-300 ease-out" 
+            style={{ animationDelay: "1s", transform: `translate(${mousePos.x * 20}px, ${mousePos.y * 20}px)` }}>
             <Sparkles className="h-4 w-4 text-[var(--celadon)]" />
             <div className="text-left">
               <div className="text-[10px] uppercase tracking-widest text-black/80 font-bold">Hand-built</div>
               <div className="text-sm font-semibold text-black">Cable managed</div>
             </div>
           </div>
-          <div className="hidden md:flex absolute -right-4 bottom-16 bg-white/90 backdrop-blur-xl rounded-2xl px-4 py-3 items-center gap-3 animate-float shadow-xl border border-black/5" style={{ animationDelay: "2s" }}>
+          <div className="hidden md:flex absolute -right-4 bottom-16 bg-white/90 backdrop-blur-xl rounded-2xl px-4 py-3 items-center gap-3 animate-float shadow-xl border border-black/5 transition-transform duration-300 ease-out" 
+            style={{ animationDelay: "2s", transform: `translate(${mousePos.x * -15}px, ${mousePos.y * -15}px)` }}>
             <Star className="h-4 w-4 fill-[var(--celadon)] text-[var(--celadon)]" />
             <div className="text-left">
               <div className="text-[10px] uppercase tracking-widest text-black/80 font-bold">4.9 / 5</div>
