@@ -57,10 +57,17 @@ function Nav() {
           </div>
         </div>
         {open && (
-          <div className="md:hidden mt-2 glass rounded-3xl p-4 animate-fade-up">
-            {links.map(([l, h]) => (
-              <a key={h} href={h} onClick={() => setOpen(false)} className="block px-3 py-3 text-sm">{l}</a>
-            ))}
+          <div className="md:hidden mt-2 nav-glass rounded-3xl p-6 animate-fade-up shadow-2xl border border-white/10">
+            <nav className="flex flex-col gap-4">
+              {links.map(([l, h]) => (
+                <a key={h} href={h} onClick={() => setOpen(false)} className="text-lg font-medium text-[var(--granite)] px-2 py-1">
+                  {l}
+                </a>
+              ))}
+              <a href="tel:+919167940505" className="flex items-center justify-center gap-2 rounded-full bg-[var(--granite)] px-5 py-3 text-sm font-medium text-[var(--background)] mt-2">
+                <Phone className="h-4 w-4" /> Call us now
+              </a>
+            </nav>
           </div>
         )}
       </div>
@@ -523,9 +530,27 @@ function Footer() {
 
 /* ---------- HOME ---------- */
 function Home() {
+  const [loading, setLoading] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Real loading logic: wait for images and window load
+    const handleLoad = () => {
+      // Small delay for the "welcoming" feel
+      setTimeout(() => setLoading(false), 2000);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (loading) return;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -542,11 +567,13 @@ function Home() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [loading]);
 
   return (
-    <main ref={ref} className="relative">
-      <Nav />
+    <>
+      {loading && <LoadingScreen />}
+      <main ref={ref} className={`relative transition-opacity duration-1000 ${loading ? "opacity-0" : "opacity-100"}`}>
+        <Nav />
       <Hero />
       <Marquee />
       <Bento />
@@ -558,6 +585,24 @@ function Home() {
       <Footer />
       <WhatsAppButton />
     </main>
+    </>
+  );
+}
+
+function LoadingScreen() {
+  return (
+    <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#F4F1EE]">
+      <div className="relative">
+        <div className="h-24 w-24 rounded-full border-2 border-[var(--granite)]/10 flex items-center justify-center">
+          <span className="font-display italic text-2xl text-[var(--granite)] animate-pulse">in</span>
+        </div>
+        <div className="absolute inset-0 h-24 w-24 rounded-full border-t-2 border-[var(--celadon)] animate-spin" />
+      </div>
+      <div className="mt-8 text-center">
+        <div className="font-display text-xl text-[var(--granite)] tracking-tight">IN-N-OUT</div>
+        <div className="mt-2 text-[10px] uppercase tracking-[0.4em] text-[var(--granite)]/40 animate-fade-in">Crafting with care</div>
+      </div>
+    </div>
   );
 }
 
