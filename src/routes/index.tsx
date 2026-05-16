@@ -152,7 +152,7 @@ function Hero() {
 
 /* ---------- MARQUEE ---------- */
 function Marquee() {
-  const items = ["In-store shopping", "Kerbside pickup", "Delivery", "Genuine parts", "Expert repair", "Polite staff", "Women-owned", "LGBTQ+ friendly", "GST invoices", "Same-day fixes"];
+  const items = ["In-store shopping", "Kerbside pickup", "Delivery", "Genuine parts", "Expert repair", "Polite staff", "Women-owned", "GST invoices", "Same-day fixes"];
   return (
     <div className="relative overflow-hidden border-y border-[var(--border)] py-6 bg-white/40 backdrop-blur-sm">
       <div className="flex w-max animate-marquee gap-14 px-6">
@@ -474,7 +474,7 @@ function Footer() {
           <a href="tel:+919167940505" className="block text-[var(--background)] hover:text-[var(--celadon)] transition">091679 40505</a>
           <span className="block text-[var(--background)]/70 mt-1.5">Open daily · Closes 10 pm</span>
           <div className="flex gap-2 mt-5">
-            {["Women-owned", "LGBTQ+ friendly"].map((t) => (
+            {["Women-owned"].map((t) => (
               <span key={t} className="inline-flex items-center text-[10px] uppercase tracking-widest rounded-full border border-white/30 px-2.5 py-1">{t}</span>
             ))}
           </div>
@@ -493,6 +493,26 @@ function Footer() {
 /* ---------- HOME ---------- */
 function Home() {
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-up");
+          entry.target.classList.remove("opacity-0");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const sections = ref.current?.querySelectorAll("section, article, .glass");
+    sections?.forEach((s) => {
+      s.classList.add("opacity-0");
+      observer.observe(s);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main ref={ref} className="relative">
       <Nav />
@@ -505,6 +525,26 @@ function Home() {
       <FAQ />
       <CTA />
       <Footer />
+      <WhatsAppButton />
     </main>
+  );
+}
+
+function WhatsAppButton() {
+  return (
+    <a
+      href="https://wa.me/919167940505?text=Hi%20IN-N-OUT%2C%20I'm%20interested%20in%20building%20a%20custom%20PC%20%2F%20repairing%20my%20laptop.%20Can%20you%20help%3F"
+      target="_blank"
+      rel="noreferrer"
+      className="fixed bottom-8 right-8 z-[100] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-500 hover:scale-110 hover:-rotate-12 group"
+      aria-label="Contact us on WhatsApp"
+    >
+      <svg className="h-7 w-7 fill-current" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.139c1.52.907 3.013 1.362 4.43 1.363 5.455.002 9.896-4.44 9.898-9.896.002-5.457-4.442-9.9-9.898-9.9-5.457 0-9.9 4.444-9.901 9.9-.001 1.92.543 3.739 1.574 5.262l-.999 3.648 3.896-1.017zm11.233-3.419c-.312-.156-1.848-.912-2.134-1.017-.286-.104-.494-.156-.701.156-.207.312-.804 1.017-.986 1.226-.182.208-.364.234-.676.078-.312-.156-1.316-.484-2.507-1.547-.926-.826-1.552-1.846-1.733-2.158-.182-.312-.02-.481.136-.636.141-.14.312-.364.468-.547.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.547-.078-.156-.701-1.691-.961-2.316-.253-.609-.51-.527-.701-.537l-.598-.01c-.208 0-.546.078-.832.39-.286.312-1.092 1.067-1.092 2.601 0 1.534 1.118 3.018 1.274 3.226.156.208 2.2 3.361 5.33 4.715.745.322 1.327.514 1.78.658.748.236 1.429.203 1.968.123.6-.09 1.848-.755 2.108-1.485.26-.73.26-1.354.182-1.485-.078-.13-.286-.208-.598-.364z" />
+      </svg>
+      <span className="absolute -top-12 right-0 scale-0 rounded-lg bg-[var(--granite)] px-3 py-1.5 text-xs text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 whitespace-nowrap">
+        Chat with us
+      </span>
+    </a>
   );
 }
