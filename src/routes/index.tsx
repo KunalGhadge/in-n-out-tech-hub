@@ -108,11 +108,11 @@ function Hero() {
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.3s" }}>
-          <a href="#shop" className="group inline-flex items-center gap-2 rounded-full bg-[var(--granite)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:bg-[var(--granite)]/90 transition shadow-[0_20px_40px_-15px_rgba(76,102,99,0.5)]">
+          <a href="#shop" className="group inline-flex items-center gap-2 rounded-full bg-[var(--granite)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:bg-black transition shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
             Explore the atelier
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
           </a>
-          <a href="#visit" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-[var(--granite)] hover:bg-white/70 transition">
+          <a href="#visit" className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-[var(--granite)] hover:bg-white/80 transition">
             Visit the store
           </a>
         </div>
@@ -201,14 +201,14 @@ function Bento() {
 function BentoCard({ className = "", img, title, icon, desc, compact = false, featured = false }:
   { className?: string; img: string; title: string; icon: React.ReactNode; desc: string; compact?: boolean; featured?: boolean }) {
   return (
-    <article className={`group relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] ${className} transition-all duration-700 hover:shadow-[0_30px_60px_-20px_rgba(76,102,99,0.25)] hover:-translate-y-1`}>
+    <article className={`group relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] ${className} transition-all duration-700 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.3)] hover:-translate-y-1`}>
       <img src={img} alt={title} loading="lazy" width={1024} height={768}
-        className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all duration-[1200ms] group-hover:scale-110 group-hover:opacity-95" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--granite)]/85 via-[var(--granite)]/30 to-transparent" />
+        className="absolute inset-0 h-full w-full object-cover transition-all duration-[1200ms] group-hover:scale-110" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--granite)]/95 via-[var(--granite)]/40 to-transparent" />
       <div className={`relative h-full flex flex-col justify-end ${compact ? "p-5" : "p-7"}`}>
-        <div className="flex items-center gap-2 text-[var(--frost)] mb-3">
+        <div className="flex items-center gap-2 text-[var(--celadon)] mb-3 drop-shadow-md">
           <span className="[&>svg]:h-3.5 [&>svg]:w-3.5">{icon}</span>
-          <span className="text-[10px] uppercase tracking-[0.25em]">{title}</span>
+          <span className="text-[10px] uppercase tracking-[0.25em] font-semibold">{title}</span>
         </div>
         {!compact && (
           <h3 className={`font-display text-[var(--background)] mb-2 ${featured ? "text-3xl sm:text-4xl" : "text-xl"}`}>
@@ -406,7 +406,7 @@ function FAQ() {
         </h2>
         <Accordion type="single" collapsible className="mt-14 space-y-3">
           {items.map((it, i) => (
-            <AccordionItem key={i} value={`i${i}`} className="border border-[var(--border)] rounded-2xl px-6 bg-white/50 backdrop-blur-md">
+            <AccordionItem key={i} value={`i${i}`} className="border border-[var(--border)] rounded-2xl px-6 bg-white/90 shadow-sm">
               <AccordionTrigger className="text-left text-base sm:text-lg hover:no-underline py-6 font-display font-normal text-[var(--granite)]">
                 {it.q}
               </AccordionTrigger>
@@ -452,35 +452,35 @@ function CTA() {
 /* ---------- FOOTER ---------- */
 function Footer() {
   return (
-    <footer className="mt-12 bg-[var(--granite)] text-[var(--background)] rounded-t-[2rem]">
+    <footer className="mt-12 bg-[#1A1F1E] text-[var(--background)] rounded-t-[2rem]">
       <div className="mx-auto max-w-6xl px-6 py-16 grid sm:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-2.5 font-display text-base">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--background)] text-[var(--granite)] italic">in</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--background)] text-[#1A1F1E] italic">in</span>
             IN-N-OUT
           </div>
-          <p className="mt-5 text-sm text-[var(--background)]/65 max-w-xs leading-relaxed">
+          <p className="mt-5 text-sm text-[var(--background)]/80 max-w-xs leading-relaxed">
             Kamothe's trusted computer atelier — custom PCs, laptops, components and expert repair since day one.
           </p>
         </div>
         <div className="text-sm">
-          <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--background)]/50 mb-4">Visit</div>
-          <p className="text-[var(--background)]/85 leading-relaxed">
+          <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--background)]/60 mb-4">Visit</div>
+          <p className="text-[var(--background)] leading-relaxed">
             Shop No. 10, Shivkalpataru Arcade,<br />Sector 17, Kamothe, Panvel,<br />Maharashtra 410209
           </p>
         </div>
         <div className="text-sm">
-          <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--background)]/50 mb-4">Reach</div>
-          <a href="tel:+919167940505" className="block hover:text-[var(--celadon)] transition">091679 40505</a>
-          <span className="block text-[var(--background)]/60 mt-1.5">Open daily · Closes 10 pm</span>
+          <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--background)]/60 mb-4">Reach</div>
+          <a href="tel:+919167940505" className="block text-[var(--background)] hover:text-[var(--celadon)] transition">091679 40505</a>
+          <span className="block text-[var(--background)]/70 mt-1.5">Open daily · Closes 10 pm</span>
           <div className="flex gap-2 mt-5">
             {["Women-owned", "LGBTQ+ friendly"].map((t) => (
-              <span key={t} className="inline-flex items-center text-[10px] uppercase tracking-widest rounded-full border border-white/20 px-2.5 py-1">{t}</span>
+              <span key={t} className="inline-flex items-center text-[10px] uppercase tracking-widest rounded-full border border-white/30 px-2.5 py-1">{t}</span>
             ))}
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/5">
         <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--background)]/55">
           <span>© {new Date().getFullYear()} IN-N-OUT Computer Solutions. All rights reserved.</span>
           <span className="font-display italic">Crafted in Panvel, MH</span>
