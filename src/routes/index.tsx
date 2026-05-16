@@ -15,45 +15,8 @@ import keyboardImg from "@/assets/keyboard.jpg";
 import componentsImg from "@/assets/components.jpg";
 import repairImg from "@/assets/repair.jpg";
 import monitorImg from "@/assets/monitor.jpg";
-import bgVideo from "@/assets/bg-loop.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "IN-N-OUT Computer Solutions — Luxury Custom PCs & Repair in Panvel" },
-      { name: "description", content: "Kamothe's most loved computer atelier. Bespoke gaming PCs, premium laptops, graphics cards & expert repair. 4.9★ from 464+ reviews. Open till 10pm." },
-      { name: "keywords", content: "computer shop Panvel, laptop repair Kamothe, custom gaming PC Navi Mumbai, graphics card, computer store Kamothe, IN-N-OUT Computer Solutions" },
-      { name: "theme-color", content: "#F6F2EE" },
-      { property: "og:title", content: "IN-N-OUT Computer Solutions — Bespoke PCs & Repair, Panvel" },
-      { property: "og:description", content: "4.9★ in Kamothe. Custom PCs, laptops, components and expert repair, crafted with care." },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-    scripts: [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ComputerStore",
-        name: "IN-N-OUT Computer Solutions",
-        image: "/og.jpg",
-        telephone: "+91 91679 40505",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Shop No. 10, Shivkalpataru Arcade, Sector 17, Kamothe",
-          addressLocality: "Panvel",
-          addressRegion: "Maharashtra",
-          postalCode: "410209",
-          addressCountry: "IN",
-        },
-        geo: { "@type": "GeoCoordinates", latitude: 19.0259, longitude: 73.0986 },
-        openingHours: "Mo-Su 10:00-22:00",
-        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "464" },
-        priceRange: "₹₹",
-      }),
-    }],
-  }),
   component: Home,
 });
 
@@ -109,22 +72,13 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Background video */}
-      <div className="absolute inset-0 -z-10">
-        <video
-          autoPlay muted loop playsInline preload="auto"
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ willChange: "transform" }}
-        >
-          <source src={bgVideo.url} type="video/mp4" />
-        </video>
+        {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/70 via-[var(--background)]/40 to-[var(--background)]" />
         <div className="absolute inset-0 mix-blend-soft-light opacity-60"
           style={{
             background: "radial-gradient(ellipse 60% 50% at 20% 20%, #D4C5E2 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 30%, #A7E2E3 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 90%, #80CFA9 0%, transparent 60%)",
           }}
         />
-      </div>
 
       <div className="mx-auto max-w-6xl px-4 text-center pt-28 pb-16">
         <div className="animate-fade-up inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs tracking-wide text-[var(--granite)] mb-8">
