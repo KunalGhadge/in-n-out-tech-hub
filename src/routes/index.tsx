@@ -72,8 +72,16 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-        {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/70 via-[var(--background)]/40 to-[var(--background)]" />
+      {/* Background video */}
+      <div className="absolute inset-0 -z-10">
+        <video
+          autoPlay muted loop playsInline preload="auto"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ willChange: "transform" }}
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-circuit-board-details-4404-large.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/60 via-[var(--background)]/30 to-[var(--background)]" />
         <div className="absolute inset-0 mix-blend-soft-light opacity-60"
           style={{
             background: "radial-gradient(ellipse 60% 50% at 20% 20%, #D4C5E2 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 30%, #A7E2E3 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 90%, #80CFA9 0%, transparent 60%)",
@@ -176,13 +184,13 @@ function Bento() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-[minmax(200px,auto)]">
-          <BentoCard className="md:col-span-3 md:row-span-2 bg-[var(--thistle)]/30" img={heroPc} title="Custom PCs" icon={<Cpu />} desc="Hand-built, cable-managed and benchmark-tuned to your needs and budget. From idea to first boot in days." featured />
-          <BentoCard className="md:col-span-3 bg-[var(--periwinkle)]/40" img={laptopImg} title="Laptops" icon={<Laptop />} desc="Apple, gaming, business — sourced with full warranty." />
-          <BentoCard className="md:col-span-2 bg-[var(--frost)]/40" img={gpuImg} title="Graphics Cards" icon={<MonitorSmartphone />} desc="NVIDIA & AMD, in stock." />
-          <BentoCard className="md:col-span-1 bg-[var(--celadon)]/30" img={keyboardImg} title="Peripherals" icon={<Keyboard />} desc="Keys. Mice. Mats." compact />
-          <BentoCard className="md:col-span-2 bg-[var(--thistle)]/30" img={componentsImg} title="Components" icon={<HardDrive />} desc="RAM, SSDs, PSUs, cooling." />
-          <BentoCard className="md:col-span-2 bg-[var(--periwinkle)]/30" img={repairImg} title="Repair" icon={<Wrench />} desc="Board-level laptop & PC service." />
-          <BentoCard className="md:col-span-2 bg-[var(--frost)]/30" img={monitorImg} title="Monitors" icon={<MonitorSmartphone />} desc="From 1080p to ultrawide 4K." />
+          <BentoCard className="md:col-span-3 md:row-span-2 bg-[var(--thistle)]/50" img={heroPc} title="Custom PCs" icon={<Cpu />} desc="Hand-built, cable-managed and benchmark-tuned to your needs and budget. From idea to first boot in days." featured />
+          <BentoCard className="md:col-span-3 bg-[var(--periwinkle)]/60" img={laptopImg} title="Laptops" icon={<Laptop />} desc="Apple, gaming, business — sourced with full warranty." />
+          <BentoCard className="md:col-span-2 bg-[var(--frost)]/60" img={gpuImg} title="Graphics Cards" icon={<MonitorSmartphone />} desc="NVIDIA & AMD, in stock." />
+          <BentoCard className="md:col-span-1 bg-[var(--celadon)]/50" img={keyboardImg} title="Peripherals" icon={<Keyboard />} desc="Keys. Mice. Mats." compact />
+          <BentoCard className="md:col-span-2 bg-[var(--thistle)]/50" img={componentsImg} title="Components" icon={<HardDrive />} desc="RAM, SSDs, PSUs, cooling." />
+          <BentoCard className="md:col-span-2 bg-[var(--periwinkle)]/50" img={repairImg} title="Repair" icon={<Wrench />} desc="Board-level laptop & PC service." />
+          <BentoCard className="md:col-span-2 bg-[var(--frost)]/50" img={monitorImg} title="Monitors" icon={<MonitorSmartphone />} desc="From 1080p to ultrawide 4K." />
         </div>
       </div>
     </section>
@@ -225,7 +233,7 @@ function Stats() {
     <section className="py-20">
       <div className="mx-auto max-w-6xl px-4 grid grid-cols-2 md:grid-cols-4 gap-3">
         {stats.map((s, i) => (
-          <div key={s.l} className="glass rounded-[1.75rem] p-8 text-center hover:bg-white/70 transition-all duration-500 hover:-translate-y-1 animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
+          <div key={s.l} className="glass rounded-[1.75rem] p-8 text-center hover:bg-white/80 transition-all duration-500 hover:-translate-y-1 animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
             <div className="font-display text-5xl sm:text-6xl text-[var(--granite)] font-light">{s.v}</div>
             <div className="mt-2 text-[10px] uppercase tracking-[0.25em] text-[var(--granite)]/60">{s.l}</div>
           </div>
@@ -417,7 +425,7 @@ function CTA() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-5xl px-4">
-        <div className="relative overflow-hidden rounded-[2rem] p-12 sm:p-20 text-center grain bg-gradient-to-br from-[var(--thistle)]/60 via-[var(--periwinkle)]/50 to-[var(--frost)]/60 border border-[var(--border)]">
+        <div className="relative overflow-hidden rounded-[2rem] p-12 sm:p-20 text-center grain bg-gradient-to-br from-[var(--thistle)]/80 via-[var(--periwinkle)]/70 to-[var(--frost)]/80 border border-[var(--border)]">
           <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-[var(--celadon)]/50 blur-3xl" />
           <p className="relative text-xs uppercase tracking-[0.3em] text-[var(--granite)]/60 mb-4">A new build awaits</p>
           <h2 className="relative text-5xl sm:text-7xl font-display font-light text-[var(--granite)] text-balance leading-[0.95]">

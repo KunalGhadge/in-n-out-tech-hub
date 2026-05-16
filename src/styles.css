@@ -54,12 +54,12 @@
   --celadon: #80CFA9;
   --granite: #4C6663;
 
-  --background: #FFFFFF; /* solid white canvas for contrast */
-  --foreground: #1E2926; /* darker granite ink */
+  --background: #F8F5F2; /* warm cream canvas for luxury feel */
+  --foreground: #1A1F1E; /* deep granite ink */
   --card: #FFFFFF;
-  --card-foreground: #1E2926;
+  --card-foreground: #1A1F1E;
   --popover: #FFFFFF;
-  --popover-foreground: #2C3A38;
+  --popover-foreground: #1A1F1E;
 
   --primary: #4C6663;            /* granite */
   --primary-foreground: #F6F2EE;
@@ -127,17 +127,17 @@
   .italic-serif { font-family: var(--font-display); font-style: italic; font-weight: 300; }
 
   .glass {
-    background: color-mix(in oklab, white 85%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid color-mix(in oklab, var(--granite) 15%, transparent);
+    background: color-mix(in oklab, white 45%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in oklab, var(--granite) 12%, transparent);
   }
   .glass-dark {
-    background: color-mix(in oklab, var(--granite) 90%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: color-mix(in oklab, var(--granite) 85%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     color: var(--background);
-    border: 1px solid color-mix(in oklab, white 15%, transparent);
+    border: 1px solid color-mix(in oklab, white 10%, transparent);
   }
   .gradient-text {
     background: linear-gradient(110deg, var(--granite) 0%, #6b8a83 35%, #80CFA9 60%, #9bb5d6 85%, var(--granite) 100%);
