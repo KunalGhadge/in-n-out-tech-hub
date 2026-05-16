@@ -130,18 +130,18 @@ function Hero() {
           </div>
 
           {/* floating chips */}
-          <div className="hidden md:flex absolute -left-4 top-10 glass rounded-2xl px-4 py-3 items-center gap-3 animate-float" style={{ animationDelay: "1s" }}>
+          <div className="hidden md:flex absolute -left-4 top-10 bg-white/90 backdrop-blur-xl rounded-2xl px-4 py-3 items-center gap-3 animate-float shadow-xl border border-black/5" style={{ animationDelay: "1s" }}>
             <Sparkles className="h-4 w-4 text-[var(--celadon)]" />
             <div className="text-left">
-              <div className="text-[10px] uppercase tracking-widest text-[var(--granite)]/60">Hand-built</div>
-              <div className="text-sm font-medium text-[var(--granite)]">Cable managed</div>
+              <div className="text-[10px] uppercase tracking-widest text-black/80 font-bold">Hand-built</div>
+              <div className="text-sm font-semibold text-black">Cable managed</div>
             </div>
           </div>
-          <div className="hidden md:flex absolute -right-4 bottom-16 glass rounded-2xl px-4 py-3 items-center gap-3 animate-float" style={{ animationDelay: "2s" }}>
+          <div className="hidden md:flex absolute -right-4 bottom-16 bg-white/90 backdrop-blur-xl rounded-2xl px-4 py-3 items-center gap-3 animate-float shadow-xl border border-black/5" style={{ animationDelay: "2s" }}>
             <Star className="h-4 w-4 fill-[var(--celadon)] text-[var(--celadon)]" />
             <div className="text-left">
-              <div className="text-[10px] uppercase tracking-widest text-[var(--granite)]/60">4.9 / 5</div>
-              <div className="text-sm font-medium text-[var(--granite)]">464+ reviews</div>
+              <div className="text-[10px] uppercase tracking-widest text-black/80 font-bold">4.9 / 5</div>
+              <div className="text-sm font-semibold text-black">464+ reviews</div>
             </div>
           </div>
         </div>
