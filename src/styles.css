@@ -127,17 +127,20 @@
   .italic-serif { font-family: var(--font-display); font-style: italic; font-weight: 300; }
 
   .glass {
-    background: color-mix(in oklab, white 30%, transparent);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid color-mix(in oklab, var(--granite) 20%, transparent);
+    background: color-mix(in oklab, white 15%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid color-mix(in oklab, var(--granite) 25%, transparent);
   }
   .glass-dark {
-    background: color-mix(in oklab, var(--granite) 92%, transparent);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: #1A1F1E; /* Solid dark finish for the info cards */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     color: var(--background);
-    border: 1px solid color-mix(in oklab, white 20%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .section-divider {
+    border-top: 1px solid color-mix(in oklab, var(--granite) 8%, transparent);
   }
   .gradient-text {
     background: linear-gradient(110deg, var(--granite) 0%, #6b8a83 35%, #80CFA9 60%, #9bb5d6 85%, var(--granite) 100%);

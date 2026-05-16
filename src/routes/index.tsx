@@ -170,7 +170,7 @@ function Marquee() {
 /* ---------- BENTO ---------- */
 function Bento() {
   return (
-    <section id="shop" className="relative py-28 sm:py-40">
+    <section id="shop" className="relative py-28 sm:py-40 section-divider">
       <div className="mx-auto max-w-6xl px-4">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--granite)]/60 mb-4 flex items-center gap-3">
@@ -231,7 +231,7 @@ function Stats() {
     { v: "1000+", l: "PCs built" },
   ];
   return (
-    <section className="py-20">
+    <section className="py-20 bg-black/5 section-divider">
       <div className="mx-auto max-w-6xl px-4 grid grid-cols-2 md:grid-cols-4 gap-3">
         {stats.map((s, i) => (
           <div key={s.l} className="glass rounded-[1.75rem] p-8 text-center hover:bg-white/80 transition-all duration-500 hover:-translate-y-1 animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
@@ -258,7 +258,7 @@ const REVIEWS = [
 
 function Reviews() {
   return (
-    <section id="reviews" className="py-28 sm:py-40">
+    <section id="reviews" className="py-28 sm:py-40 section-divider">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
@@ -315,7 +315,7 @@ function Visit() {
     { icon: <Truck className="h-3.5 w-3.5" />, l: "Delivery" },
   ];
   return (
-    <section id="visit" className="py-28 sm:py-40">
+    <section id="visit" className="py-28 sm:py-40 bg-black/5 section-divider">
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid lg:grid-cols-5 gap-5">
           <div className="lg:col-span-2 flex flex-col justify-between glass-dark rounded-[1.75rem] p-10">
@@ -398,7 +398,7 @@ function FAQ() {
     { q: "What are your hours?", a: "We're open every day and close at 10 pm. Saturdays are typically our quietest mornings if you want a relaxed consult." },
   ];
   return (
-    <section id="faq" className="py-28 sm:py-40">
+    <section id="faq" className="py-28 sm:py-40 section-divider">
       <div className="mx-auto max-w-3xl px-4">
         <p className="text-xs uppercase tracking-[0.3em] text-[var(--granite)]/60 mb-4 text-center">FAQ</p>
         <h2 className="text-5xl sm:text-6xl font-display font-light text-[var(--granite)] text-center text-balance leading-[0.95]">
@@ -424,7 +424,7 @@ function FAQ() {
 /* ---------- CTA ---------- */
 function CTA() {
   return (
-    <section className="py-24">
+    <section className="py-24 section-divider">
       <div className="mx-auto max-w-5xl px-4">
         <div className="relative overflow-hidden rounded-[2rem] p-12 sm:p-20 text-center grain bg-gradient-to-br from-[var(--thistle)]/80 via-[var(--periwinkle)]/70 to-[var(--frost)]/80 border border-[var(--border)]">
           <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-[var(--celadon)]/50 blur-3xl" />
