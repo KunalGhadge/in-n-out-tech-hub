@@ -284,10 +284,22 @@ function Reviews() {
               4.9 stars. <span className="italic-serif">464 stories.</span>
             </h2>
           </div>
-          <a href="https://www.google.com/maps/place/IN-N-OUT+Computer+Solutions" target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--granite)]/70 hover:text-[var(--granite)] story-link">
-            Read on Google <ArrowUpRight className="h-4 w-4" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="https://www.google.com/maps/place/IN-N-OUT+Computer+Solutions/@19.0141634,73.0854441,17z/data=!4m8!3m7!1s0x3be7fde7f7311299:0x8ed7fdf7567289ac!8m2!3d19.0141634!4d73.0854441!9m1!1b1!16s%2Fg%2F11b6v4b3z_?entry=ttu" target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--granite)] px-5 py-2.5 text-sm font-medium text-[var(--background)] hover:bg-black transition">
+              Write a Review <Star className="h-3.5 w-3.5 fill-[var(--celadon)] text-[var(--celadon)]" />
+            </a>
+            <a href="https://www.google.com/maps/place/IN-N-OUT+Computer+Solutions" target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-[var(--granite)]/70 hover:text-[var(--granite)] story-link">
+              <svg className="h-4 w-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c3.11 0 5.72-1.03 7.63-2.81l-3.57-2.77c-.99.66-2.23 1.06-4.06 1.06-3.12 0-5.76-2.11-6.71-4.94H1.1v2.86C3.01 20.12 7.16 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.29 13.54c-.24-.72-.38-1.5-.38-2.31s.14-1.59.38-2.31V6.07H1.1a11.94 11.94 0 000 11.86l4.19-3.39z"/>
+                <path fill="#EA4335" d="M12 4.75c1.69 0 3.21.58 4.41 1.71l3.3-3.3C17.71 1.13 15.09 0 12 0 7.16 0 3.01 2.88 1.1 6.07l4.19 3.39c.95-2.83 3.59-4.94 6.71-4.94z"/>
+              </svg>
+              View on Google <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           {REVIEWS.map((r, i) => (
@@ -295,11 +307,15 @@ function Reviews() {
               style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="absolute -top-16 -right-16 h-44 w-44 rounded-full blur-3xl opacity-50"
                 style={{ background: r.tint }} />
-              <Quote className="relative h-8 w-8 text-[var(--granite)]/20 mb-5" />
-              <div className="relative flex gap-0.5 mb-5">
-                {Array.from({ length: r.rating }).map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-[var(--celadon)] text-[var(--celadon)]" />
-                ))}
+              <div className="relative flex items-center justify-between mb-5">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: r.rating }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[#FBBC05] text-[#FBBC05]" />
+                  ))}
+                </div>
+                <svg className="h-5 w-5 opacity-40" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c3.11 0 5.72-1.03 7.63-2.81l-3.57-2.77c-.99.66-2.23 1.06-4.06 1.06-3.12 0-5.76-2.11-6.71-4.94H1.1v2.86C3.01 20.12 7.16 23 12 23zM5.29 13.54c-.24-.72-.38-1.5-.38-2.31s.14-1.59.38-2.31V6.07H1.1a11.94 11.94 0 000 11.86l4.19-3.39zM12 4.75c1.69 0 3.21.58 4.41 1.71l3.3-3.3C17.71 1.13 15.09 0 12 0 7.16 0 3.01 2.88 1.1 6.07l4.19 3.39c.95-2.83 3.59-4.94 6.71-4.94z"/>
+                </svg>
               </div>
               <p className="relative font-display text-lg sm:text-xl text-[var(--granite)] leading-snug font-light">
                 "{r.text}"
@@ -367,7 +383,7 @@ function Visit() {
             </div>
           </div>
 
-          <div className="lg:col-span-3 relative rounded-[1.75rem] overflow-hidden border border-[var(--border)] min-h-[480px] bg-white">
+          <div className="lg:col-span-3 relative rounded-[1.75rem] overflow-hidden border border-[var(--border)] h-[400px] sm:h-[480px] bg-white shadow-inner">
             <iframe
               title="IN-N-OUT Computer Solutions location"
               src="https://www.google.com/maps?q=IN-N-OUT+Computer+Solutions,+Shivkalpataru+Arcade,+Sector+17,+Kamothe,+Panvel,+Maharashtra+410209&output=embed"
