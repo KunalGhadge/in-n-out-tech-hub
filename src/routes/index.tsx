@@ -113,7 +113,8 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
         <video
           autoPlay muted loop playsInline preload="auto"
-          className="absolute inset-0 h-full w-full object-cover animate-drift"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ willChange: "transform" }}
         >
           <source src={bgVideo.url} type="video/mp4" />
         </video>

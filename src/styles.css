@@ -54,10 +54,10 @@
   --celadon: #80CFA9;
   --granite: #4C6663;
 
-  --background: #F6F2EE; /* warm cream canvas for luxury feel */
-  --foreground: #2C3A38; /* deep granite ink */
+  --background: #FFFFFF; /* solid white canvas for contrast */
+  --foreground: #1E2926; /* darker granite ink */
   --card: #FFFFFF;
-  --card-foreground: #2C3A38;
+  --card-foreground: #1E2926;
   --popover: #FFFFFF;
   --popover-foreground: #2C3A38;
 
@@ -112,7 +112,6 @@
       radial-gradient(ellipse 50% 38% at 92% 8%, color-mix(in oklab, var(--periwinkle) 55%, transparent), transparent 70%),
       radial-gradient(ellipse 55% 40% at 80% 92%, color-mix(in oklab, var(--frost) 45%, transparent), transparent 70%),
       radial-gradient(ellipse 50% 38% at 10% 88%, color-mix(in oklab, var(--celadon) 38%, transparent), transparent 70%);
-    background-attachment: fixed;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
@@ -128,17 +127,17 @@
   .italic-serif { font-family: var(--font-display); font-style: italic; font-weight: 300; }
 
   .glass {
-    background: color-mix(in oklab, white 55%, transparent);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
-    border: 1px solid color-mix(in oklab, var(--granite) 10%, transparent);
+    background: color-mix(in oklab, white 85%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid color-mix(in oklab, var(--granite) 15%, transparent);
   }
   .glass-dark {
-    background: color-mix(in oklab, var(--granite) 78%, transparent);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    background: color-mix(in oklab, var(--granite) 90%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--background);
-    border: 1px solid color-mix(in oklab, white 12%, transparent);
+    border: 1px solid color-mix(in oklab, white 15%, transparent);
   }
   .gradient-text {
     background: linear-gradient(110deg, var(--granite) 0%, #6b8a83 35%, #80CFA9 60%, #9bb5d6 85%, var(--granite) 100%);
