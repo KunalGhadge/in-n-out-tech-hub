@@ -87,6 +87,7 @@ function Hero() {
             background: "radial-gradient(ellipse 60% 50% at 20% 20%, #D4C5E2 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 30%, #A7E2E3 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 90%, #80CFA9 0%, transparent 60%)",
           }}
         />
+      </div>
 
       <div className="mx-auto max-w-6xl px-4 text-center pt-28 pb-16">
         <div className="animate-fade-up inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs tracking-wide text-[var(--granite)] mb-8">
