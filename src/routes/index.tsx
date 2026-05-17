@@ -399,11 +399,11 @@ function Visit() {
               referrerPolicy="no-referrer-when-downgrade"
               style={{ border: 0 }}
             />
-            <div className="absolute top-5 left-5 glass rounded-2xl px-4 py-3 flex items-center gap-3 max-w-[260px]">
+            <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md shadow-xl border border-black/5 rounded-2xl px-4 py-3 flex items-center gap-3 max-w-[260px]">
               <span className="marker" />
               <div>
-                <div className="text-[10px] uppercase tracking-widest text-[var(--granite)]/60">You are invited</div>
-                <div className="text-sm font-medium text-[var(--granite)]">Sector 17, Kamothe</div>
+                <div className="text-[10px] uppercase tracking-widest text-black/80 font-bold">You are invited</div>
+                <div className="text-sm font-semibold text-black">Sector 17, Kamothe</div>
               </div>
             </div>
           </div>
